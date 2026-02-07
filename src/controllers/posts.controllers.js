@@ -8,7 +8,7 @@ export function createPost(req, res) {
   const { posts } = res.locals.repos;
 
   if (!title || !body) {
-    return res.status(400).json({ error: { message: "title and body are required" } });
+    return res.status(400).json({ error: { message: 'title and body are required' } });
   }
 
   const created = posts.create({ title, body });

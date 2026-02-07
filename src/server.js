@@ -7,6 +7,6 @@ const repos = await createRepos();
 
 const app = createApp({ repos });
 
-app.listen(env.PORT, ()=>{
-    console.log(`ContentHub API listening on http://localhost:${env.port}`);
+app.listen(env.PORT, () => {
+  console.log(`ContentHub API listening on http://localhost:${env.port}`);
 });

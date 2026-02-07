@@ -4,10 +4,11 @@
   "description": "build small api for testing with postman all backend",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch src/server.js", 
+    "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
     "format:check": "prettier . --check",
     "format:write": "prettier . --write",
     "test": "vitest",
