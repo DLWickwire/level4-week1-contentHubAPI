@@ -2,7 +2,7 @@ import { notFound } from '#utils/httpErrors';
 import { ensureBodyFields } from '#utils/guard';
 import { parsePagination } from '#utils/pagination';
 
-export function listPosts(_req, res) {
+export function listPosts(req, res) {
   const { posts } = res.locals.repos;
 
   const { limit, offset } = parsePagination(req.query);
@@ -23,7 +23,7 @@ export function getPost(req, res) {
     throw notFound('Post not found');
   }
 
-  return res.ok(found);
+  return res.ok(post);
 }
 
 export function createPost(req, res) {

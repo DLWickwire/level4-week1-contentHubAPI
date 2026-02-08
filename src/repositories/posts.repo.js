@@ -1,15 +1,13 @@
-
 export function createPostsRepo() {
-    const posts = [];
-    let nextID = 1;
-
+  const posts = [];
+  let nextID = 1;
 
   return {
-    list({ limit = 20, offset=0}={}) {
-        const total =posts.length;
+    list({ limit = 20, offset = 0 } = {}) {
+      const total = posts.length;
 
-        const filteredPosts= posts.slice(offset, offset + limit);
-      return {items: filteredPosts, total};
+      const filteredPosts = posts.slice(offset, offset + limit);
+      return { items: filteredPosts, total };
     },
 
     getById(id) {

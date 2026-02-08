@@ -8,5 +8,5 @@ postsRouter.get('/', listPosts);
 postsRouter.post('/', createPost);
 postsRouter.get('/:id', getPost);
 
-postsRouter.get('/:postId/comments', listCommentsForPost)
-postsRouter.get('/:postId/comments', createCommentForPost)
+postsRouter.get('/:postId/comments', listCommentsForPost);
+postsRouter.get('/:postId/comments', createCommentForPost);
