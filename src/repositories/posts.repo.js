@@ -1,10 +1,17 @@
-const posts = [];
-let nextID = 1;
-
 export function createPostsRepo() {
+  const posts = [];
+  let nextID = 1;
+
   return {
-    list() {
-      return posts;
+    list({ limit = 20, offset = 0 } = {}) {
+      const total = posts.length;
+
+      const filteredPosts = posts.slice(offset, offset + limit);
+      return { items: filteredPosts, total };
+    },
+
+    getById(id) {
+      return posts.find((post) => post.id === id);
     },
 
     create({ title, body }) {
