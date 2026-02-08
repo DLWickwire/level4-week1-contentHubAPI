@@ -1,11 +1,18 @@
-// src/repositories/comment.repo.js
 export function createCommentsRepo() {
-  // simple in-memory store for Day 1
+  /** @type {Comment[]} */
   const comments = [];
+  let nextId = 1;
 
   return {
-    list: () => comments,
-    create: (comment) => {
+    listForPost(postId, { limit = 20, offset = 0 } = {}) {
+      const all = comments.filter((c) => c.postId === postId);
+      const total = all.length;
+      const items = all.slice(offset, offset + limit);
+      return { items, total };
+    },
+
+    create({ postId, body }) {
+      const comment = { id: nextId++, postId, body };
       comments.push(comment);
       return comment;
     },
