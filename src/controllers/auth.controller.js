@@ -22,7 +22,10 @@ export function registerUser(req, res) {
     passwordHash: hashPassword(password),
   });
 
-  const token = signToken({ userId: user.id, secret: req.app.locals.config.JWT_SECRET });
+  const token = signToken({
+    sub: user.id,
+    secret: req.app.locals.config.JWT_SECRET,
+  });
 
   return res.created({
     token,
@@ -47,7 +50,10 @@ export function loginUser(req, res) {
     throw unauthorized('Invalid credentials');
   }
 
-  const token = signToken({ userId: user.id, secret: req.app.locals.config.JWT_SECRET });
+  const token = signToken({
+    sub: user.id,
+    secret: req.app.locals.config.JWT_SECRET,
+  });
 
   return res.ok({
     token,

@@ -1,3 +1,6 @@
+import { verifyToken } from '#utils/jwt';
+import { unauthorized } from '#utils/httpErrors';
+
 export function requireAuth(req, _res, next) {
   const header = req.headers.authorization ?? '';
   const [scheme, token] = header.split(' ');
