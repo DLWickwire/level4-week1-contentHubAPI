@@ -13,7 +13,8 @@
     "format:write": "prettier . --write",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "db:migrate": "node"
   },
   "repository": {
     "type": "git",
